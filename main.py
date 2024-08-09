@@ -20,7 +20,7 @@ tt0 = time.time()
 bubble_sort(b)
 tt1 = time.time()
 
-print('Сортировка пузырьком: ', tt1 - tt0)
+print('Сортировка пузырьком: ', format(tt1 - tt0, '.4f'))
 print(b)
 
 
@@ -41,11 +41,13 @@ tt0 = time.time()
 selection_sort(b)
 tt1 = time.time()
 
-print('Сортировка выбором: ', tt1 - tt0)
+print('Сортировка выбором: ', format(tt1 - tt0, '.4f'))
 print(b)
 
 #   Быстрая сортировка (Quick Sort);
 def quick_sort(s):
+    if len(s) <= 1:
+        return s
     element = s[0]
     left = list(filter(lambda i: i < element, s))
     center = [i for i in s if i == element]
@@ -60,7 +62,7 @@ tt0 = time.time()
 quick_sort(b)
 tt1 = time.time()
 
-print('Быстрая сортировка: ', tt1 - tt0)
+print('Быстрая сортировка: ', format(tt1 - tt0, '.4f'))
 print(b)
 
 
@@ -81,7 +83,7 @@ tt0 = time.time()
 quick_sort2(b)
 tt1 = time.time()
 
-print('Быстрая сортировка2: ', tt1 - tt0)
+print('Быстрая сортировка (list): ', format(tt1 - tt0, '.4f'))
 print(b)
 
 #   Сортировка слиянием (Merge Sort)
@@ -108,9 +110,11 @@ tt0 = time.time()
 insert_sort(b)
 tt1 = time.time()
 
-print('Сортировка вставками: ', tt1 - tt0)
+print('Сортировка вставками: ', format(tt1 - tt0, '.4f'))
 print(b)
 # Результат: [-8, -3, 0, 1, 5, 10]
+
+print('Разница между сортировками: ')
 bb = []
 bb = a.copy()
 bb.sort()

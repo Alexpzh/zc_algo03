@@ -26,16 +26,32 @@ print(b)
 
 
 #   Сортировка выбором (Selection Sort);
-#   Быстрая сортировка (Quick Sort);
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_idx = i
+        for j in range(i + 1, len(arr)):
+            if arr[min_idx] > arr[j]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
 
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    else:
-        pivot = arr[0]
-        less = [i for i in arr[1:] if i <= pivot]
-        greater = [i for i in arr[1:] if i > pivot]
-        return quick_sort(less) + [pivot] + quick_sort(greater)
+b = []
+b = a.copy()
+
+tt0 = time.time()
+selection_sort(b)
+tt1 = time.time()
+
+print('Сортировка выбором: ', tt1 - tt0)
+print(b)
+
+#   Быстрая сортировка (Quick Sort);
+def quick_sort(s):
+    element = s[0]
+    left = list(filter(lambda i: i < element, s))
+    center = [i for i in s if i == element]
+    right = list(filter(lambda i: i > element, s))
+
+    return quick_sort(left) + center + quick_sort(right)
 
 b = []
 b = a.copy()
@@ -45,6 +61,27 @@ quick_sort(b)
 tt1 = time.time()
 
 print('Быстрая сортировка: ', tt1 - tt0)
+print(b)
+
+
+
+def quick_sort2(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        less = [i for i in arr[1:] if i <= pivot]
+        greater = [i for i in arr[1:] if i > pivot]
+        return quick_sort2(less) + [pivot] + quick_sort2(greater)
+
+b = []
+b = a.copy()
+
+tt0 = time.time()
+quick_sort2(b)
+tt1 = time.time()
+
+print('Быстрая сортировка2: ', tt1 - tt0)
 print(b)
 
 #   Сортировка слиянием (Merge Sort)

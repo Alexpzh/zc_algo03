@@ -8,7 +8,12 @@ print("\nИсходный массив: ")
 print(a)
 bb = []
 bb = a.copy()
+tt0 = time.time()
 bb.sort()
+tt1 = time.time()
+
+print('\nСортировка стандартной библиотекой: ', format(tt1 - tt0, '.4f'), 'сек')
+
 
 #   Пузырьковая сортировка (Bubble Sort);
 def bubble_sort(a):

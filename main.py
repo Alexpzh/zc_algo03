@@ -1,7 +1,5 @@
 import time
 import numpy as np
-import random
-import timeit
 
 a = np.random.randint(-100000, 100000, 10000).tolist()
 #a = [-3, 5, 0, -8, 1, 10]
@@ -25,10 +23,11 @@ tt0 = time.time()
 bubble_sort(b)
 tt1 = time.time()
 
-print('\nСортировка пузырьком: ', format(tt1 - tt0, '.4f'))
+print('\nСортировка пузырьком: ', format(tt1 - tt0, '.4f'), 'сек')
 print(b)
-print('Проверка со стандартной сортировкой (sort): ')
-print (list(set(b)^set(bb)))
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
+#x = np.where(b != bb)[0]
+#print (np.array_equal(b, bb))
 
 
 
@@ -46,10 +45,9 @@ tt0 = time.time()
 selection_sort(b)
 tt1 = time.time()
 
-print('\nСортировка выбором: ', format(tt1 - tt0, '.4f'))
+print('\nСортировка выбором: ', format(tt1 - tt0, '.4f'), 'сек')
 print(b)
-print('Проверка со стандартной сортировкой (sort): ')
-print (list(set(b)^set(bb)))
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
 
 #   Быстрая сортировка (Quick Sort);
 def quick_sort(s):
@@ -67,10 +65,9 @@ tt0 = time.time()
 b = quick_sort(b)
 tt1 = time.time()
 
-print('\nБыстрая сортировка (filter): ', format(tt1 - tt0, '.4f'))
+print('\nБыстрая сортировка (filter): ', format(tt1 - tt0, '.4f'), 'сек')
 print(b)
-print('Проверка со стандартной сортировкой (sort): ')
-print (list(set(b)^set(bb)))
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
 
 
 def quick_sort2(arr):
@@ -87,10 +84,9 @@ tt0 = time.time()
 b = quick_sort2(b)
 tt1 = time.time()
 
-print('\nБыстрая сортировка (list - предложен gpt): ', format(tt1 - tt0, '.4f'))
+print('\nБыстрая сортировка (list - предложен gpt): ', format(tt1 - tt0, '.4f'), 'сек')
 print(b)
-print('Проверка со стандартной сортировкой (sort): ')
-print (list(set(b)^set(bb)))
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
 
 #   Сортировка слиянием (Merge Sort)
 def merge_list(left, right):
@@ -127,10 +123,9 @@ tt0 = time.time()
 b = merge_sort(b)
 tt1 = time.time()
 
-print('\nСортировка слиянием: ', format(tt1 - tt0, '.4f'))
+print('\nСортировка слиянием: ', format(tt1 - tt0, '.4f'), 'сек')
 print(b)
-print('Проверка со стандартной сортировкой (sort): ')
-print (list(set(b)^set(bb)))
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
 
 #   Сортировка вставками (Insertion Sort);
 def insert_sort(arr):
@@ -148,8 +143,7 @@ tt0 = time.time()
 insert_sort(b)
 tt1 = time.time()
 
-print('\nСортировка вставками: ', format(tt1 - tt0, '.4f'))
+print('\nСортировка вставками: ', format(tt1 - tt0, '.4f'), 'сек')
 print(b)
-print('Проверка со стандартной сортировкой (sort): ')
-print (list(set(b)^set(bb)))
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
 

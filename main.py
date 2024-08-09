@@ -27,6 +27,26 @@ print(b)
 
 #   Сортировка выбором (Selection Sort);
 #   Быстрая сортировка (Quick Sort);
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        less = [i for i in arr[1:] if i <= pivot]
+        greater = [i for i in arr[1:] if i > pivot]
+        return quick_sort(less) + [pivot] + quick_sort(greater)
+
+b = []
+b = a.copy()
+
+tt0 = time.time()
+quick_sort(b)
+tt1 = time.time()
+
+print('Быстрая сортировка: ', tt1 - tt0)
+print(b)
+
 #   Сортировка слиянием (Merge Sort)
 
 #inp = input("Enter number: ")

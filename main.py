@@ -1,5 +1,6 @@
 import time
 import numpy as np
+import math
 
 a = np.random.randint(-100000, 100000, 10000).tolist()
 #a = [-3, 5, 0, -8, 1, 10]
@@ -147,3 +148,23 @@ print('\nСортировка вставками: ', format(tt1 - tt0, '.4f'), '
 print(b)
 print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
 
+def comb_sort(arr):
+    gap = len(arr)
+    swap = True
+    while gap > 1 or swap:
+        gap = max(1, math.floor(gap / 1.25))
+        swap = False
+        for i in range(len(arr) - gap):
+            if arr[i] > arr[i + gap]:
+                arr[i], arr[i + gap] = arr[i + gap], arr[i]
+                swap = True
+    return arr
+
+b = a.copy()
+tt0 = time.time()
+b = comb_sort(b)
+tt1 = time.time()
+
+print('\nСортировка расчёской: ', format(tt1 - tt0, '.4f'), 'сек')
+print(b)
+print('Проверка со стандартной сортировкой (sort): ' + str(np.array_equal(b, bb)))
